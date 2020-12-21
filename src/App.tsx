@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setContries } from './AppSlice';
-// import CountryList from './components/countryList/countryList';
 import Map from './components/Map/Map';
+import CountryList from './components/countryList/countryList';
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
@@ -17,8 +19,12 @@ const App: React.FC = () => {
 
     return (
         <>
-            {/* <CountryList /> */}
-            <Map />
+            <Header />
+            <main>
+                <CountryList />
+                <Map />
+            </main>
+            <Footer />
         </>
     );
 };

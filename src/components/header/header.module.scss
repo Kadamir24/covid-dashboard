@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Roboto-figma';
+    src: url('../../assets/fonts/roboto.ttf');
+}
+
+$blue-dark-color: #041023;
+$blue-color: #2C364B;
+$blue-light-color: #566077;
+$white-color: #ffffffff;
+
+%roboto-font {
+    font-family: 'Roboto-figma';
+    font-weight: 900;
+    font-style: normal;
+}
+
+.container {
+    padding: 20px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $blue-light-color;
+    overflow: hidden;
+
+    .title {
+        margin: 0px;
+        @extend %roboto-font;
+        font-size: 28px;
+        font-weight: bold;
+        color: $white-color;
+    }
+}

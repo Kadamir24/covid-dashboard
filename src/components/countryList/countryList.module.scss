@@ -94,7 +94,7 @@ $white-color: #ffffffff;
             .country {
                 margin: 0px 0px 0px 10px;
                 @extend %roboto-font;
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
                 color: $white-color;
             }
@@ -102,7 +102,7 @@ $white-color: #ffffffff;
             .totalNumber {
                 margin: 0px 0px 0px auto;
                 @extend %roboto-font;
-                font-size: 18px;
+                font-size: 15px;
                 font-weight: bold;
                 color: $white-color;
             }
@@ -123,21 +123,18 @@ $white-color: #ffffffff;
     width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     padding: 5px;
     background: $blue-light-color;
     border-radius: 5px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: $blue-color;
     border: 1px solid $blue-light-color;
     border-radius: 5px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: $blue-dark-color;
 }

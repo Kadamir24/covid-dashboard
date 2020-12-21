@@ -57,7 +57,7 @@ const CountryList = () => {
     ));
     return (
         <div className={styles.container}>
-            <Header data={data} search={{ onChange: handleChange }} />
+            <Header data={countries.slice()} search={{ onChange: handleChange }} />
             <List data={data} />
         </div>
     );
