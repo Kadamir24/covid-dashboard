@@ -1,16 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICountry } from './interfaces/appInterfaces';
 
+interface IAppState {
+    countries: ICountry[]
+}
+
+const initialState: IAppState = {
+    countries: [],
+};
+
 const appSlice = createSlice({
     name: 'app',
-    initialState: {
-        countries: [] as ICountry[],
-    },
+    initialState,
     reducers: {
-        setContries(state: { countries: ICountry[] }, action: PayloadAction<ICountry[]>) {
-            return {
-                countries: action.payload,
-            };
+        setContries(state: IAppState, action: PayloadAction<ICountry[]>) {
+            const copyState = { ...state };
+            copyState.countries = action.payload;
+            return copyState;
         },
     },
 });

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setContries } from './AppSlice';
-import CountryList from './components/CountryList/CountryList';
+import CountryList from './components/countryList/countryList';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();

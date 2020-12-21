@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import TotalNumber from '../Utils';
-import styles from './CountryList.module.scss';
+import TotalNumber from '../utils';
+import styles from './countryList.module.scss';
 import { RootState } from '../../store/rootReducer';
 import { ICountry } from '../../interfaces/appInterfaces';
 
@@ -23,10 +23,10 @@ const Header = (props: {
 const ListItem = (props: {flagSrc: string, countryName: string, totalNumber: number }) => {
     const { flagSrc, countryName, totalNumber } = props;
     return (
-        <div className={styles['list-item']}>
+        <div className={styles.listItem}>
             <img className={styles.flag} alt={`${countryName} flag`} srcSet={flagSrc} />
             <h2 className={styles.country}>{countryName}</h2>
-            <h2 className={styles['total-number']}>{totalNumber.toLocaleString()}</h2>
+            <h2 className={styles.totalNumber}>{totalNumber.toLocaleString()}</h2>
         </div>
     );
 };
@@ -52,7 +52,9 @@ const CountryList = () => {
         setSearch(event.target.value);
     };
     const { countries } = useSelector((state: RootState) => state.countries);
-    const data = countries.slice().filter(({ country }) => country.includes(search));
+    const data = countries.slice().filter(({ country }) => (
+        country.toLowerCase().includes(search.toLowerCase())
+    ));
     return (
         <div className={styles.container}>
             <Header data={data} search={{ onChange: handleChange }} />

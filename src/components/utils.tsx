@@ -9,7 +9,7 @@ const TotalNumber = (props: {
         styles, title, number,
     } = props;
     return (
-        <div className={styles['total-number']}>
+        <div className={styles.totalNumber}>
             <h2 className={styles.title}>{title}</h2>
             <h3 className={styles.number}>{number}</h3>
         </div>
