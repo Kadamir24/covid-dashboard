@@ -1,5 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setContries } from './AppSlice';
+import CountryList from './components/countryList/countryList';
 
-const App: React.FC = () => (<h1>Covid-dashboard</h1>);
+const App: React.FC = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        fetch('https://corona.lmao.ninja/v2/countries')
+            .then((response) => response.json())
+            .then((json) => {
+                dispatch(setContries(json));
+            });
+    }, []);
+
+    return (
+        <CountryList />
+    );
+};
 
 export default App;
