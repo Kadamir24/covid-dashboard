@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setContries } from './AppSlice';
+import Map from './components/Map/Map';
 import CountryList from './components/countryList/countryList';
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Header />
             <main>
                 <CountryList />
+                <Map />
             </main>
             <Footer />
         </>
