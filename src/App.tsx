@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setContries } from './AppSlice';
-import Map from './components/Map/Map';
+import Map from './components/map/map';
 import CountryList from './components/countryList/countryList';
 import Footer from './components/footer/footer';
 import Header from './components/header/header';

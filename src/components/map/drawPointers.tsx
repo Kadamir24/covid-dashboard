@@ -61,8 +61,8 @@ function drawPointers(map, data) {
                 const {
                     cases, deaths, country, recovered,
                 } = event.features[0].properties;
-                // const newMap = map.getCanvas();
-                // newMap.style.cursor = 'pointer';
+                const newMap = map.getCanvas();
+                newMap.style.cursor = 'pointer';
                 const coords = event.features[0].geometry.coordinates;
                 const countryISO = lookup.byCountry(country)?.iso2
                 || lookup.byInternet(country)?.iso2;
@@ -83,7 +83,8 @@ function drawPointers(map, data) {
         });
         map.on('mouseleave', 'circles', () => {
             lastId = undefined;
-            // map.getCanvas().style.cursor = '';
+            const newMap = map.getCanvas();
+            newMap.style.cursor = '';
             popup.remove();
         });
     });
