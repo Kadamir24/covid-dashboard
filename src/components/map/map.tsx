@@ -1,14 +1,19 @@
 import React, { useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import drawBorders from './drawBorders';
 import drawPointers from './drawPointers';
+import drawPointersAbs from './drawPointersAbs';
 import styles from './map.module.scss';
 import { getCountries } from '../utils';
+import { RootState } from '../../store/rootReducer';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FkYW1pcjI0IiwiYSI6ImNraXk2emplNTI1cGEyeW40Y2JxMmQ0ZmQifQ.-rzmHUAxpKRFdBrqat63GA';
 
 function Map() {
+    const { appState } = useSelector((state: RootState) => state);
+    const is100k = appState.is100KPopSelected;
     const mapboxElRef = useRef(null);
     const countries = getCountries();
     const data = countries.map((point, index) => ({
@@ -39,13 +44,17 @@ function Map() {
             });
             map.addControl(new mapboxgl.NavigationControl());
             drawBorders(map);
-            drawPointers(map, data);
+            if (!is100k) {
+                drawPointers(map, data);
+            } else {
+                drawPointersAbs(map, data);
+            }
         }
     }, [data]);
 
     return (
         <div className={styles.container}>
-            <div className={styles.box} ref={mapboxElRef} />
+            <div id="map-box" className={styles.box} ref={mapboxElRef} />
         </div>
     );
 }

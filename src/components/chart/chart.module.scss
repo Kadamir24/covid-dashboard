@@ -1,0 +1,21 @@
+$blue-dark-color: #041023;
+$blue-color: #2C364B;
+$blue-light-color: #566077;
+
+.container {
+    background-color: $blue-color;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 1000px) {
+    .container {
+      width: calc(50%);
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: 100%;
+    }
+}

@@ -31,7 +31,7 @@ const Toggle = (props: {
     );
 };
 
-const Header = (props: { title: string | null}) => {
+const Header = (props: { title: string | null }) => {
     const { title } = props;
     const toTitle = () => (title === null ? 'Global' : title);
     const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const Header = (props: { title: string | null}) => {
     );
 };
 
-const TotalItem = (props: {title: string, number: number}) => {
+const TotalItem = (props: { title: string, number: number }) => {
     const { title, number } = props;
     return (
         <div className={`${styles.totalItem} ${styles[title]}`}>
@@ -64,7 +64,7 @@ const TotalItem = (props: {title: string, number: number}) => {
     );
 };
 
-const TotalList = (props: { countries: ICountry[]}) => {
+const TotalList = (props: { countries: ICountry[] }) => {
     const { countries } = props;
     const statistics = [
         {
@@ -83,8 +83,12 @@ const TotalList = (props: { countries: ICountry[]}) => {
     return (
         <div className={styles.totalList}>
             {
-                statistics.map((element) => (
-                    <TotalItem title={element.title} number={element.number} />
+                statistics.map((element, index) => (
+                    <TotalItem
+                        key={index.toString()}
+                        title={element.title}
+                        number={element.number}
+                    />
                 ))
             }
         </div>
