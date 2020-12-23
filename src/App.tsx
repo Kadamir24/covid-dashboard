@@ -5,7 +5,7 @@ import Map from './components/map/map';
 import CountryList from './components/countryList/countryList';
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
-import Chart from './components/chart/chart';
+import Statistics from './components/statistics/statistics';
 
 const App: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const App: React.FC = () => {
             <main>
                 <CountryList />
                 <Map />
-                <Chart />
+                <Statistics />
             </main>
             <Footer />
         </>
