@@ -14,9 +14,13 @@ html, body {
 
 main {
   padding: 20px;
-  height: calc(100% - 220px);
+  height: calc(100% - 180px);
   width: 100%;
   display: flex;
   flex-direction: row;
   overflow: hidden;
+}
+
+aside {
+  width: calc(27.5% - 20px);
 }

@@ -7,6 +7,7 @@ $blue-dark-color: #041023;
 $blue-color: #2C364B;
 $blue-light-color: #566077;
 $white-color: #ffffffff;
+$grey-color: #C4C4C4;
 
 %roboto-font {
     font-family: 'Roboto-figma';
@@ -16,7 +17,7 @@ $white-color: #ffffffff;
 
 .container {
     height: 100%;
-    width: calc(20% - 20px);
+    width: calc(22.5% - 20px);
     border-radius: 5px;
     background-color: $blue-color;
     position: relative;
@@ -62,7 +63,7 @@ $white-color: #ffffffff;
             padding: 0px 0px 0px 25px !important;
             height: 25px !important;
             width: 100% !important;
-            background: url('../../assets/icons/search-white-24dp\ 1.svg') no-repeat scroll 5px 5px;
+            background: url('../../assets/icons/search.svg') no-repeat scroll 5px 5px;
             background-color: $blue-color !important;
             border: none;
             border-radius: 5px !important;
@@ -71,8 +72,48 @@ $white-color: #ffffffff;
         }
     }
 
-    .list {
-        height: calc(100% - 110px);
+    .activeListItem {
+        padding: 10px 15px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #5C9E5F;
+        outline:none;
+
+        .flag {
+            height: 12px;
+            width: 16px;
+        }
+
+        .country {
+            margin: 0px 0px 0px 10px;
+            @extend %roboto-font;
+            font-size: 15px;
+            font-weight: bold;
+            color: $white-color;
+        }
+        
+        .closeButton {
+            margin: 0px 0px 0px auto;
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            border: none;
+            background: url('../../assets/icons/close.svg') no-repeat 4px 4px;
+            background-color: $grey-color;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .activeListItemHide {
+        display: none;
+    }
+
+    .list, .listActive {
         width: 100%;
         position: absolute;
         top: 125;
@@ -85,6 +126,7 @@ $white-color: #ffffffff;
             display: flex;
             flex-direction: row;
             align-items: center;
+            outline:none;
 
             .flag {
                 height: 12px;
@@ -116,6 +158,14 @@ $white-color: #ffffffff;
                 background-color: $blue-dark-color;
             }
         }
+    }
+
+    .list {
+        height: calc(100% - 110px);
+    }
+
+    .listActive {
+        height: calc(100% - 156px);
     }
 }
 

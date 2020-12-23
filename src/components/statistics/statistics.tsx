@@ -83,8 +83,12 @@ const TotalList = (props: { countries: ICountry[]}) => {
     return (
         <div className={styles.totalList}>
             {
-                statistics.map((element) => (
-                    <TotalItem title={element.title} number={element.number} />
+                statistics.map((element, index) => (
+                    <TotalItem
+                        key={index.toString()}
+                        title={element.title}
+                        number={element.number}
+                    />
                 ))
             }
         </div>
