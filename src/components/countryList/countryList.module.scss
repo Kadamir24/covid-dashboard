@@ -16,7 +16,7 @@ $white-color: #ffffffff;
 
 .container {
     height: 100%;
-    width: 20%;
+    width: calc(20% - 20px);
     border-radius: 5px;
     background-color: $blue-color;
     position: relative;

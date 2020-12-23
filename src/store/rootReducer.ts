@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import countriesReducer from '../AppSlice';
+import appStateReducer from '../AppSlice';
 
 const rootReducer = combineReducers({
-    countries: countriesReducer,
+    appState: appStateReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
