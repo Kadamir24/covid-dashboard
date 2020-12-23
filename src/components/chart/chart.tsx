@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Line, Bar } from 'react-chartjs-2';
 import { RootState } from '../../store/rootReducer';
 import { fetchData, fetchDataByCountry } from './fetchChart';
+import styles from './chart.module.scss';
 
 const Chart = () => {
     const { appState } = useSelector((state: RootState) => state);
@@ -126,7 +127,7 @@ const Chart = () => {
     );
 
     return (
-        <div>
+        <div className={styles.container}>
             { isLastDaySelected ? bar : line}
         </div>
     );

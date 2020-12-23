@@ -54,7 +54,7 @@ function Map() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.box} ref={mapboxElRef} />
+            <div id="map-box" className={styles.box} ref={mapboxElRef} />
         </div>
     );
 }

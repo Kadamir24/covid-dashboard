@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import lookup from 'country-code-lookup';
+import styles from './map.module.scss';
 
 function drawPointers(map, data) {
     map.once('load', () => {
@@ -48,14 +49,14 @@ function drawPointers(map, data) {
                 ],
             },
         });
-        const mapboxContainer = document.querySelector('.map_box__DXD8p');
+        const mapboxContainer = document.getElementById('map-box');
         const layers = ['1-1000', '1000-5000', '5000-50000', '50000-100000',
             '100000-300000', '300000-500000', '500000+'];
         const colors = ['#00FF00', '#99ff00', '#FFFF00', '#FFCC00',
             '#ff9900', '#FF3300', '#FF0000'];
         const stateLegendEl = document.createElement('div');
         stateLegendEl.setAttribute('id', 'state-legend');
-        stateLegendEl.classList.add('legend');
+        stateLegendEl.classList.add(styles.legend);
         const textLegend = document.createElement('span');
         textLegend.innerHTML = 'Legend: number of cases';
         stateLegendEl.appendChild(textLegend);
