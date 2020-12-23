@@ -8,7 +8,7 @@ import { RootState } from '../../store/rootReducer';
 
 const Header = (props: {
     data: ICountry[],
-    search: {onChange: (event: React.ChangeEvent<HTMLInputElement>) => void}
+    search: { onChange: (event: React.ChangeEvent<HTMLInputElement>) => void }
 }) => {
     const { data, search } = props;
     const title = 'Global cases';

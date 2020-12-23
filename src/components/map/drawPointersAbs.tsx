@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import lookup from 'country-code-lookup';
 
-function drawPointers(map, data) {
+function drawPointersAbs(map, data) {
     map.once('load', () => {
         map.addSource('points', {
             type: 'geojson',
@@ -28,29 +28,29 @@ function drawPointers(map, data) {
                     ['linear'],
                     ['get', 'cases'],
                     1, 4,
-                    1000, 8,
-                    4000, 10,
-                    8000, 14,
-                    12000, 18,
-                    100000, 40,
+                    5, 8,
+                    20, 10,
+                    40, 14,
+                    80, 18,
+                    100, 40,
                 ],
                 'circle-color': [
                     'interpolate',
                     ['linear'],
                     ['get', 'cases'],
-                    1, '#00FF00',
-                    1000, '#99ff00',
-                    5000, '#FFFF00',
-                    50000, '#FFCC00',
-                    100000, '#ff9900',
-                    300000, '#FF3300',
-                    500000, '#FF0000',
+                    0.001, '#00FF00',
+                    1, '#99ff00',
+                    5, '#FFFF00',
+                    50, '#FFCC00',
+                    100, '#ff9900',
+                    300, '#FF3300',
+                    500, '#FF0000',
                 ],
             },
         });
         const mapboxContainer = document.querySelector('.map_box__DXD8p');
-        const layers = ['1-1000', '1000-5000', '5000-50000', '50000-100000',
-            '100000-300000', '300000-500000', '500000+'];
+        const layers = ['0.001-1', '1-5', '5-50', '50-100',
+            '100-300', '300-500', '500+'];
         const colors = ['#00FF00', '#99ff00', '#FFFF00', '#FFCC00',
             '#ff9900', '#FF3300', '#FF0000'];
         const stateLegendEl = document.createElement('div');
@@ -115,4 +115,4 @@ function drawPointers(map, data) {
     });
 }
 
-export default drawPointers;
+export default drawPointersAbs;

@@ -64,7 +64,8 @@ $cyan-color: #566F77;
       color: $white-color;
     }
 
-    .toggleOff, .toggleOn {
+    .toggleOff,
+    .toggleOn {
       margin: 0px 5px;
       height: 25px;
       width: 50px;
@@ -77,7 +78,7 @@ $cyan-color: #566F77;
       border: none;
       transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
     }
-  
+
     .toggleOff {
       &:before {
         display: block;
@@ -92,10 +93,10 @@ $cyan-color: #566F77;
         transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
       }
     }
-  
+
     .toggleOn {
       background-color: $green-light-color;
-  
+
       &:before {
         display: block;
         position: absolute;
@@ -150,7 +151,6 @@ $cyan-color: #566F77;
         color: $white-color;
       }
     }
-
   .cases {
     background-color: $cyan-color;
   }
