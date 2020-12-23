@@ -1,17 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/rootReducer';
 import drawBorders from './drawBorders';
 import drawPointers from './drawPointers';
 import styles from './map.module.scss';
+import { getCountries } from '../utils';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FkYW1pcjI0IiwiYSI6ImNraXk2emplNTI1cGEyeW40Y2JxMmQ0ZmQifQ.-rzmHUAxpKRFdBrqat63GA';
 
 function Map() {
     const mapboxElRef = useRef(null);
-    const { countries } = useSelector((state: RootState) => state.countries);
+    const countries = getCountries();
     const data = countries.map((point, index) => ({
         type: 'Feature',
         geometry: {
