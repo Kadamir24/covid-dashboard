@@ -8,7 +8,10 @@ $blue-color: #2C364B;
 $blue-light-color: #566077;
 $white-color: #ffffffff;
 $grey-color: #C4C4C4;
+$green-color: #567757;
 $green-light-color: #5C9E5F;
+$red-color: #775656;
+$cyan-color: #566F77;
 
 %roboto-font {
   font-family: 'Roboto-figma';
@@ -17,10 +20,13 @@ $green-light-color: #5C9E5F;
 }
 
 .container {
-  height: fit-content;
-  // width: calc(30% - 20px);
+  margin: 0px 0px 20px 0px;
+  height: calc((100% / 2) - 20px);
+  width: 100%;
+  position: relative;
   border-radius: 5px;
   background-color: $blue-color;
+  overflow: hidden;
 
   .header {
     height: 100px;
@@ -108,11 +114,15 @@ $green-light-color: #5C9E5F;
   }
 
   .totalList {
-    padding: 10px;
+    height: calc(100% - 100px);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
 
     .totalItem {
-      padding: 15px 0px;
+      height: 30%;
       margin: 0px 20%;
       display: flex;
       flex-direction: column;
@@ -141,17 +151,16 @@ $green-light-color: #5C9E5F;
         color: $white-color;
       }
     }
+  .cases {
+    background-color: $cyan-color;
+  }
 
-    .cases {
-      background-color: #566F77;
-    }
+  .deaths {
+    background-color: $red-color;
+  }
 
-    .deaths {
-      background-color: #775656;
-    }
-
-    .recoverd {
-      background-color: #567757;
-    }
+  .recoverd {
+    background-color: $green-color;
+  }
   }
 }

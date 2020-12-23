@@ -25,10 +25,10 @@ const App: React.FC = () => {
             <main>
                 <CountryList />
                 <Map />
-                <div>
+                <aside>
                     <Statistics />
                     <Chart />
-                </div>
+                </aside>
             </main>
             <Footer />
         </>

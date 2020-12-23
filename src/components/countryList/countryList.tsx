@@ -21,6 +21,30 @@ const Header = (props: {
     );
 };
 
+const ActiveListItem = (props: {
+    flagSrc: string,
+    countryName: string | null,
+}) => {
+    const { flagSrc, countryName } = props;
+    const dispatch = useDispatch();
+    const toClass = () => (countryName !== null ? 'activeListItem' : 'activeListItemHide');
+    const handleClick = () => {
+        dispatch(setSelectedCountry(null));
+    };
+    return (
+        <div className={styles[toClass()]}>
+            <img className={styles.flag} alt={`${countryName} flag`} srcSet={flagSrc} />
+            <h2 className={styles.country}>{countryName}</h2>
+            <button
+                type="button"
+                className={styles.closeButton}
+                aria-label="Close"
+                onClick={handleClick}
+            />
+        </div>
+    );
+};
+
 const ListItem = (props: {
     flagSrc: string,
     countryName: string,
@@ -45,13 +69,14 @@ const ListItem = (props: {
     );
 };
 
-const List = (props: { data: ICountry[] }) => {
-    const { data } = props;
+const List = (props: { data: ICountry[], selectedCountry: string | null }) => {
+    const { data, selectedCountry } = props;
     const dispatch = useDispatch();
     return (
-        <div className={styles.list}>
-            {data.sort((a, b) => (b.cases - a.cases)).map((item) => (
+        <div className={selectedCountry === null ? styles.list : styles.listActive}>
+            {data.sort((a, b) => (b.cases - a.cases)).map((item, index) => (
                 <ListItem
+                    key={index.toString()}
                     flagSrc={item.countryInfo.flag}
                     countryName={item.country}
                     totalNumber={item.cases}
@@ -69,14 +94,21 @@ const CountryList = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setSearch(event.target.value);
     };
-    const { countries } = useSelector((state: RootState) => state.appState);
+    const { countries, selectedCountry } = useSelector((state: RootState) => state.appState);
+    const activeCountry = countries.slice().find((element) => (
+        element.country === selectedCountry
+    ));
     const data = countries.slice().filter(({ country }) => (
         country.toLowerCase().includes(search.toLowerCase())
     ));
     return (
         <div className={styles.container}>
             <Header data={countries.slice()} search={{ onChange: handleChange }} />
-            <List data={data} />
+            <ActiveListItem
+                flagSrc={activeCountry === undefined ? '' : activeCountry.countryInfo.flag}
+                countryName={activeCountry === undefined ? null : activeCountry.country}
+            />
+            <List data={data} selectedCountry={selectedCountry} />
         </div>
     );
 };
