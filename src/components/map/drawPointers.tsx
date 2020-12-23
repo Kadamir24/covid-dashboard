@@ -42,12 +42,37 @@ function drawPointers(map, data) {
                     5000, '#99ff00',
                     10000, '#FFFF00',
                     50000, '#FFCC00',
-                    100000, '#ff9900 ',
+                    100000, '#ff9900',
                     300000, '#FF3300',
                     500000, '#FF0000',
                 ],
             },
         });
+        const mapboxContainer = document.querySelector('.map_box__DXD8p');
+        const layers = ['1-5000', '5000-10000', '10000-50000', '50000-100000',
+            '100000-300000', '300000-500000', '500000+'];
+        const colors = ['#00FF00', '#99ff00', '#FFFF00', '#FFCC00',
+            '#ff9900', '#FF3300', '#FF0000'];
+        const stateLegendEl = document.createElement('div');
+        stateLegendEl.setAttribute('id', 'state-legend');
+        stateLegendEl.classList.add('legend');
+        const textLegend = document.createElement('span');
+        textLegend.innerHTML = 'Legend: number of cases';
+        stateLegendEl.appendChild(textLegend);
+        for (let i = 0; i < layers.length; i += 1) {
+            const layer = layers[i];
+            const color = colors[i];
+            const item = document.createElement('div');
+            const key = document.createElement('span');
+            key.className = 'legend-key';
+            key.style.backgroundColor = color;
+            const value = document.createElement('span');
+            value.innerHTML = layer;
+            item.appendChild(key);
+            item.appendChild(value);
+            stateLegendEl.appendChild(item);
+        }
+        mapboxContainer?.append(stateLegendEl);
 
         const popup = new mapboxgl.Popup({
             closeButton: false,
@@ -65,7 +90,7 @@ function drawPointers(map, data) {
                 newMap.style.cursor = 'pointer';
                 const coords = event.features[0].geometry.coordinates;
                 const countryISO = lookup.byCountry(country)?.iso2
-                || lookup.byInternet(country)?.iso2;
+                    || lookup.byInternet(country)?.iso2;
                 const flagOfCountry = countryISO
                     ? `<img src="https://www.countryflags.io/${countryISO}/flat/64.png"></img>`
                     : '';
