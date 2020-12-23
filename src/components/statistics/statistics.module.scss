@@ -168,3 +168,18 @@ $cyan-color: #566F77;
   }
   }
 }
+
+@media (max-width: 1000px) {
+  .container {
+    margin: 0px 20px 0px 0px;
+    height: 300px;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    margin: 0px 0px 20px 0px;
+    width: 100%;
+  }
+}

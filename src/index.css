@@ -16,11 +16,44 @@ main {
   padding: 20px;
   height: calc(100% - 180px);
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: calc(22.5% - 20px) 50% calc(27.5% - 20px);
+  column-gap: 20px;
   overflow: hidden;
 }
 
-aside {
-  width: calc(27.5% - 20px);
+@media (max-width: 1000px) {
+  html, body {
+    overflow: auto;
+  }
+
+  main {
+    height: auto;
+    grid-template-columns: calc(35% - 20px) calc(65%);
+    row-gap: 20px;
+    overflow: auto;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: row;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
+@media (max-width: 650px) {
+  main {
+    height: auto;
+    grid-template-columns: 100%;
+    row-gap: 20px;
+    overflow: auto;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 }

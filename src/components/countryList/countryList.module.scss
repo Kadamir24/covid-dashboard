@@ -17,7 +17,7 @@ $grey-color: #C4C4C4;
 
 .container {
     height: 100%;
-    width: calc(22.5% - 20px);
+    width: 100%;
     border-radius: 5px;
     background-color: $blue-color;
     position: relative;
@@ -188,4 +188,16 @@ $grey-color: #C4C4C4;
 
 ::-webkit-scrollbar-thumb:hover {
     background: $blue-dark-color;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        height: 600px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        height: 400px;
+    }
 }
