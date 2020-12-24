@@ -19,7 +19,7 @@ main {
   display: grid;
   grid-template-columns: calc(22.5% - 20px) 50% calc(27.5% - 20px);
   column-gap: 20px;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 @media (max-width: 1000px) {

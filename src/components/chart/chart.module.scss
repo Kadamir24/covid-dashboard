@@ -3,6 +3,7 @@ $blue-color: #2C364B;
 $blue-light-color: #566077;
 
 .container {
+    height: calc((100% / 2) - 50px);
     background-color: $blue-color;
     border-radius: 5px;
 }
@@ -10,6 +11,7 @@ $blue-light-color: #566077;
 
 @media (max-width: 1000px) {
     .container {
+      height: 300px;
       width: calc(50%);
     }
 }
