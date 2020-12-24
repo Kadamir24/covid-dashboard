@@ -25,59 +25,56 @@ const Chart = () => {
     const gettingData = items[0];
     const line = (
         gettingData ? (
-            <div>
-                <Line
-                    data={{
-                        labels: Object.keys(gettingData.cases).map((item) => item),
-                        datasets: [{
-                            label: 'cases',
-                            data: Object.values(gettingData.cases).map((item) => {
-                                if (is100k) {
-                                    const temp = Number(item) / 100000;
-                                    return String(temp);
-                                }
-                                return item;
-                            }),
-                            borderColor: '#3333ff',
-                            fill: true,
-                        }, {
-                            label: 'deaths',
-                            data: Object.values(gettingData.deaths).map((item) => {
-                                if (is100k) {
-                                    const temp = Number(item) / 100000;
-                                    return String(temp);
-                                }
-                                return item;
-                            }),
-                            borderColor: 'red',
-                            fill: true,
-                        }, {
-                            label: 'recovered',
-                            data: Object.values(gettingData.recovered).map((item) => {
-                                if (is100k) {
-                                    const temp = Number(item) / 100000;
-                                    return String(temp);
-                                }
-                                return item;
-                            }),
-                            borderColor: 'green',
-                            fill: true,
+            <Line
+                data={{
+                    labels: Object.keys(gettingData.cases).map((item) => item),
+                    datasets: [{
+                        label: 'cases',
+                        data: Object.values(gettingData.cases).map((item) => {
+                            if (is100k) {
+                                const temp = Number(item) / 100000;
+                                return String(temp);
+                            }
+                            return item;
+                        }),
+                        borderColor: '#3333ff',
+                        fill: true,
+                    }, {
+                        label: 'deaths',
+                        data: Object.values(gettingData.deaths).map((item) => {
+                            if (is100k) {
+                                const temp = Number(item) / 100000;
+                                return String(temp);
+                            }
+                            return item;
+                        }),
+                        borderColor: 'red',
+                        fill: true,
+                    }, {
+                        label: 'recovered',
+                        data: Object.values(gettingData.recovered).map((item) => {
+                            if (is100k) {
+                                const temp = Number(item) / 100000;
+                                return String(temp);
+                            }
+                            return item;
+                        }),
+                        borderColor: 'green',
+                        fill: true,
+                    }],
+                }}
+                options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
                         }],
-                    }}
-                    height={300}
-                    width={600}
-                    options={{
-                        maintainAspectRatio: false,
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true,
-                                },
-                            }],
-                        },
-                    }}
-                />
-            </div>
+                    },
+                }}
+            />
         ) : null
     );
     let caseToday;

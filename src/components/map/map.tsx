@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import drawBorders from './drawBorders';
@@ -12,7 +12,7 @@ import { RootState } from '../../store/rootReducer';
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2FkYW1pcjI0IiwiYSI6ImNraXk2emplNTI1cGEyeW40Y2JxMmQ0ZmQifQ.-rzmHUAxpKRFdBrqat63GA';
 
 function Map() {
-    const { appState } = useSelector((state: RootState) => state);
+    const { appState } = useSelector((state: RootState) => state, shallowEqual);
     const is100k = appState.is100KPopSelected;
     const mapboxElRef = useRef(null);
     const countries = getCountries();

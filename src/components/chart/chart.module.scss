@@ -3,6 +3,7 @@ $blue-color: #2C364B;
 $blue-light-color: #566077;
 
 .container {
+    height: calc(100% / 2);
     background-color: $blue-color;
     border-radius: 5px;
 }
